@@ -14,7 +14,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return WorldPresetAppbar(
-      title: "ホーム",
+      title: widget.title,
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

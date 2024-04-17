@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:worldpreset/main.dart';
 
 class WorldPresetAppbar extends StatefulWidget {
   const WorldPresetAppbar({super.key, required this.title, required this.body});
@@ -21,21 +23,17 @@ class _WorldPresetAppbar extends State<WorldPresetAppbar> {
         child: Column(
           children: [
             Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: const [
-                  ListTile(title: Text("ホーム"), leading: Icon(Icons.home)),
-                  ListTile(title: Text("連携")),
-                ],
-              ),
-            ),
-            Expanded(child: Container()),
-            const Divider(),
-            const ListTile(
-              title: Text("アカウント"),
-              leading: Icon(Icons.account_circle),
-            ),
-            const ListTile(title: Text("設定"), leading: Icon(Icons.settings)),
+                child: ListView.builder(
+              itemCount: router.configuration.routes.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(routermodels[index].name),
+                  onTap: () {
+                    context.go(routermodels[index].path);
+                  },
+                );
+              },
+            ))
           ],
         ),
       ),
