@@ -34,3 +34,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+wrangler.tomlfile
+wrangler.toml
+
+prisma/migrations
+prisma/supabase
+
+app/components/config.json
+.tmp/
+.firefox/
+
+.env
+supabase/

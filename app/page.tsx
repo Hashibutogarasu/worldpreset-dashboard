@@ -1,35 +1,19 @@
-import { sql } from '@vercel/postgres';
+"use client";
+
 import { Card, Title, Text } from '@tremor/react';
-import Search from './search';
-import UsersTable from './table';
+import WorldPresetJsonEditor from './components/jsoneditor/jsoneditor';
+import React, { useContext } from 'react';
+import { themeContext, useTheme } from './hooks/useTheme';
 
-interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-}
-
-export default async function IndexPage({
-  searchParams
-}: {
-  searchParams: { q: string };
-}) {
-  const search = searchParams.q ?? '';
-  const result = await sql`
-    SELECT id, name, username, email 
-    FROM users 
-    WHERE name ILIKE ${'%' + search + '%'};
-  `;
-  const users = result.rows as User[];
+export default function IndexPage() {
+  const theme = useContext(themeContext);
 
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
-      <Title>Users</Title>
-      <Text>A list of users retrieved from a Postgres database.</Text>
-      <Search />
-      <Card className="mt-6">
-        <UsersTable users={users} />
+      <Title style={{ color: theme.dark ? "black" : "white" }}>Edit json</Title>
+      <Text style={{ color: theme.dark ? "black" : "white" }}>設定ファイルを編集します</Text>
+      <Card  className="mt-6">
+        <WorldPresetJsonEditor />
       </Card>
     </main>
   );

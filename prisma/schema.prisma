@@ -1,0 +1,100 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
+}
+
+model Post {
+    clientId               String         @id
+    createdAt              DateTime       @default(now())
+    updatedAt              DateTime       @updatedAt
+    gamerulesModelClientId String         @unique
+    worldCreatorClientId   String         @unique
+    gamerules              GamerulesModel @relation(fields: [gamerulesModelClientId], references: [clientId], onDelete: Cascade)
+    worldcreator           WorldCreator   @relation(fields: [worldCreatorClientId], references: [clientId], onDelete: Cascade)
+}
+
+model GamerulesModel {
+    clientId String       @id
+    entries  EntriesModel @relation(fields: [clientId], references: [clientId], onDelete: Cascade)
+    Post     Post?
+}
+
+model EntriesModel {
+    clientId                         String          @id
+    globalSoundEvents                Boolean?        @default(true)
+    tntExplosionDropDecay            Boolean?        @default(false)
+    enderPearlsVanishOnDeath         Boolean?        @default(true)
+    doFireTick                       Boolean?        @default(true)
+    maxCommandChainLength            Int?            @default(65536)
+    doVinesSpread                    Boolean?        @default(true)
+    disableElytraMovementCheck       Boolean?        @default(false)
+    lavaSourceConversion             Boolean?        @default(false)
+    commandBlockOutput               Boolean?        @default(true)
+    forgiveDeadPlayers               Boolean?        @default(true)
+    playersNetherPortalCreativeDelay Int?            @default(1)
+    doMobSpawning                    Boolean?        @default(true)
+    maxEntityCramming                Int?            @default(24)
+    universalAnger                   Boolean?        @default(false)
+    playersSleepingPercentage        Int?            @default(100)
+    snowAccumulationHeight           Int?            @default(1)
+    blockExplosionDropDecay          Boolean?        @default(true)
+    doImmediateRespawn               Boolean?        @default(false)
+    naturalRegeneration              Boolean?        @default(true)
+    doMobLoot                        Boolean?        @default(true)
+    fallDamage                       Boolean?        @default(true)
+    doEntityDrops                    Boolean?        @default(true)
+    randomTickSpeed                  Int?            @default(3)
+    playersNetherPortalDefaultDelay  Int?            @default(80)
+    spawnRadius                      Int?            @default(10)
+    freezeDamage                     Boolean?        @default(true)
+    sendCommandFeedback              Boolean?        @default(true)
+    doWardenSpawning                 Boolean?        @default(true)
+    fireDamage                       Boolean?        @default(true)
+    reducedDebugInfo                 Boolean?        @default(false)
+    waterSourceConversion            Boolean?        @default(true)
+    projectilesCanBreakBlocks        Boolean?        @default(true)
+    announceAdvancements             Boolean?        @default(true)
+    drowningDamage                   Boolean?        @default(true)
+    disableRaids                     Boolean?        @default(false)
+    doWeatherCycle                   Boolean?        @default(true)
+    mobExplosionDropDecay            Boolean?        @default(true)
+    doDaylightCycle                  Boolean?        @default(true)
+    showDeathMessages                Boolean?        @default(true)
+    doTileDrops                      Boolean?        @default(true)
+    doInsomnia                       Boolean?        @default(true)
+    keepInventory                    Boolean?        @default(false)
+    doLimitedCrafting                Boolean?        @default(false)
+    mobGriefing                      Boolean?        @default(true)
+    commandModificationBlockLimit    Int?            @default(32768)
+    doTraderSpawning                 Boolean?        @default(true)
+    logAdminCommands                 Boolean?        @default(true)
+    spectatorsGenerateChunks         Boolean?        @default(true)
+    doPatrolSpawning                 Boolean?        @default(true)
+    maxCommandForkCount              Int?            @default(65536)
+    GamerulesModel                   GamerulesModel?
+}
+
+model WorldCreator {
+    clientId               String                      @id
+    gameMode               String                      @default("selectWorld.gameMode.survival")
+    difficulty             String                      @default("options.difficulty.normal")
+    cheatsEnabled          Boolean                     @default(false)
+    generateStructures     Boolean                     @default(true)
+    bonusChestEnabled      Boolean                     @default(false)
+    Post                   Post?
+    generatorOptionsHolder GeneratorOptionsHolderModel @relation(fields: [clientId], references: [clientId], onDelete: Cascade)
+}
+
+model GeneratorOptionsHolderModel {
+    clientId                 String        @id
+    shouldGenerateStructures Boolean       @default(true)
+    hasBonusChest            Boolean       @default(false)
+    seed                     Int?
+    isLegacyCustomizedType   Boolean       @default(false)
+    WorldCreator             WorldCreator?
+}
