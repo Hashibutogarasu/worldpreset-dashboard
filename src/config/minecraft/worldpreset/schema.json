@@ -1,0 +1,284 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "worldcreator": {
+            "type": "object",
+            "properties": {
+                "gameMode": {
+                    "type": "string"
+                },
+                "difficulty": {
+                    "type": "string"
+                },
+                "cheatsEnabled": {
+                    "type": "boolean"
+                },
+                "generateStructures": {
+                    "type": "boolean"
+                },
+                "bonusChestEnabled": {
+                    "type": "boolean"
+                },
+                "generatorOptionsHolder": {
+                    "type": "object",
+                    "properties": {
+                        "shouldGenerateStructures": {
+                            "type": "boolean"
+                        },
+                        "hasBonusChest": {
+                            "type": "boolean"
+                        },
+                        "seed": {
+                            "type": "integer"
+                        },
+                        "isLegacyCustomizedType": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "shouldGenerateStructures",
+                        "hasBonusChest",
+                        "seed",
+                        "isLegacyCustomizedType"
+                    ]
+                },
+                "worldType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "gameMode",
+                "difficulty",
+                "cheatsEnabled",
+                "generateStructures",
+                "bonusChestEnabled",
+                "generatorOptionsHolder",
+                "worldType"
+            ]
+        },
+        "gamerules": {
+            "type": "object",
+            "properties": {
+                "entries": {
+                    "type": "object",
+                    "properties": {
+                        "globalSoundEvents": {
+                            "type": "boolean"
+                        },
+                        "tntExplosionDropDecay": {
+                            "type": "boolean"
+                        },
+                        "enderPearlsVanishOnDeath": {
+                            "type": "boolean"
+                        },
+                        "doFireTick": {
+                            "type": "boolean"
+                        },
+                        "maxCommandChainLength": {
+                            "type": "number"
+                        },
+                        "doVinesSpread": {
+                            "type": "boolean"
+                        },
+                        "disableElytraMovementCheck": {
+                            "type": "boolean"
+                        },
+                        "lavaSourceConversion": {
+                            "type": "boolean"
+                        },
+                        "commandBlockOutput": {
+                            "type": "boolean"
+                        },
+                        "forgiveDeadPlayers": {
+                            "type": "boolean"
+                        },
+                        "playersNetherPortalCreativeDelay": {
+                            "type": "number"
+                        },
+                        "doMobSpawning": {
+                            "type": "boolean"
+                        },
+                        "maxEntityCramming": {
+                            "type": "number"
+                        },
+                        "universalAnger": {
+                            "type": "boolean"
+                        },
+                        "playersSleepingPercentage": {
+                            "type": "number"
+                        },
+                        "snowAccumulationHeight": {
+                            "type": "number"
+                        },
+                        "blockExplosionDropDecay": {
+                            "type": "boolean"
+                        },
+                        "doImmediateRespawn": {
+                            "type": "boolean"
+                        },
+                        "naturalRegeneration": {
+                            "type": "boolean"
+                        },
+                        "doMobLoot": {
+                            "type": "boolean"
+                        },
+                        "fallDamage": {
+                            "type": "boolean"
+                        },
+                        "doEntityDrops": {
+                            "type": "boolean"
+                        },
+                        "randomTickSpeed": {
+                            "type": "number"
+                        },
+                        "playersNetherPortalDefaultDelay": {
+                            "type": "number"
+                        },
+                        "spawnRadius": {
+                            "type": "number"
+                        },
+                        "freezeDamage": {
+                            "type": "boolean"
+                        },
+                        "sendCommandFeedback": {
+                            "type": "boolean"
+                        },
+                        "doWardenSpawning": {
+                            "type": "boolean"
+                        },
+                        "fireDamage": {
+                            "type": "boolean"
+                        },
+                        "reducedDebugInfo": {
+                            "type": "boolean"
+                        },
+                        "waterSourceConversion": {
+                            "type": "boolean"
+                        },
+                        "projectilesCanBreakBlocks": {
+                            "type": "boolean"
+                        },
+                        "announceAdvancements": {
+                            "type": "boolean"
+                        },
+                        "drowningDamage": {
+                            "type": "boolean"
+                        },
+                        "disableRaids": {
+                            "type": "boolean"
+                        },
+                        "doWeatherCycle": {
+                            "type": "boolean"
+                        },
+                        "mobExplosionDropDecay": {
+                            "type": "boolean"
+                        },
+                        "doDaylightCycle": {
+                            "type": "boolean"
+                        },
+                        "showDeathMessages": {
+                            "type": "boolean"
+                        },
+                        "doTileDrops": {
+                            "type": "boolean"
+                        },
+                        "doInsomnia": {
+                            "type": "boolean"
+                        },
+                        "keepInventory": {
+                            "type": "boolean"
+                        },
+                        "doLimitedCrafting": {
+                            "type": "boolean"
+                        },
+                        "mobGriefing": {
+                            "type": "boolean"
+                        },
+                        "commandModificationBlockLimit": {
+                            "type": "number"
+                        },
+                        "doTraderSpawning": {
+                            "type": "boolean"
+                        },
+                        "logAdminCommands": {
+                            "type": "boolean"
+                        },
+                        "spectatorsGenerateChunks": {
+                            "type": "boolean"
+                        },
+                        "doPatrolSpawning": {
+                            "type": "boolean"
+                        },
+                        "maxCommandForkCount": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "globalSoundEvents",
+                        "tntExplosionDropDecay",
+                        "enderPearlsVanishOnDeath",
+                        "doFireTick",
+                        "maxCommandChainLength",
+                        "doVinesSpread",
+                        "disableElytraMovementCheck",
+                        "lavaSourceConversion",
+                        "commandBlockOutput",
+                        "forgiveDeadPlayers",
+                        "playersNetherPortalCreativeDelay",
+                        "doMobSpawning",
+                        "maxEntityCramming",
+                        "universalAnger",
+                        "playersSleepingPercentage",
+                        "snowAccumulationHeight",
+                        "blockExplosionDropDecay",
+                        "doImmediateRespawn",
+                        "naturalRegeneration",
+                        "doMobLoot",
+                        "fallDamage",
+                        "doEntityDrops",
+                        "randomTickSpeed",
+                        "playersNetherPortalDefaultDelay",
+                        "spawnRadius",
+                        "freezeDamage",
+                        "sendCommandFeedback",
+                        "doWardenSpawning",
+                        "fireDamage",
+                        "reducedDebugInfo",
+                        "waterSourceConversion",
+                        "projectilesCanBreakBlocks",
+                        "announceAdvancements",
+                        "drowningDamage",
+                        "disableRaids",
+                        "doWeatherCycle",
+                        "mobExplosionDropDecay",
+                        "doDaylightCycle",
+                        "showDeathMessages",
+                        "doTileDrops",
+                        "doInsomnia",
+                        "keepInventory",
+                        "doLimitedCrafting",
+                        "mobGriefing",
+                        "commandModificationBlockLimit",
+                        "doTraderSpawning",
+                        "logAdminCommands",
+                        "spectatorsGenerateChunks",
+                        "doPatrolSpawning",
+                        "maxCommandForkCount"
+                    ]
+                }
+            },
+            "required": [
+                "entries"
+            ]
+        },
+        "userid": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "worldcreator",
+        "gamerules",
+        "userid"
+    ]
+}
